@@ -1,0 +1,555 @@
+/* Universal style */
+* {
+    margin: 0;
+    padding: 0;
+    /* make font poppins for the whole css */
+    font-family: 'Poppins', sans-serif;
+}
+
+/*------------------ for banner---------- */
+.banner{
+    height: 100vh;
+    background-image:  url(images/banner.jpg) ;
+    /* linear-gradient(rgba(0, 0, 0, 0.5), #6b7675) */
+    background-size: cover;
+    /* real one is  , */
+    /* background-position : center */
+    background-position: center bottom;
+    /* 👈 important */
+}
+
+/*------------------ for banner ends-------------*/
+
+/* styling of logo */
+.logo{
+    width: 190px;
+    /* Position: absolute is used so that an element comes out of the normal page flow and can be placed at an exact position (top, left, right, bottom) inside its parent. */
+    /* while ,
+    Position: relative is used to move an element from its original position using top, left, right, or bottom, without removing it from the normal page flow. */
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    /* background-color: #009688; */
+    /* padding-bottom:10px ; */
+   color: #fff;
+   border-top: 3px solid #f4c793;
+   border-left:3px solid #f4c793 ;
+   border-bottom: 3px solid #fff;
+   border-right: 3px solid #fff;
+   border-radius: 10px;
+}
+
+/* banner text */
+.banner-text {
+    text-align: center;
+    color: #fff;
+    /* color: #4b4949; */
+    padding-top: 140px;
+    /* real one */
+    /* padding-top: 180px; */
+}
+
+/* banner text h1*/
+
+.banner-text h1 {
+    font-size: 120px;
+    font-family: 'Kaushan Script', cursive;
+    /* font-weight: 400; real one */
+    font-weight: 500;
+}
+
+/* banner text p*/
+.banner-text p {
+    font-size: 20px;
+    font-style: italic;
+}
+
+/* banner button section */
+.banner-btn {
+    margin: 70px auto 0;
+}
+
+.banner-btn a {
+    width: 150px;
+    text-decoration: none;
+    display: inline-block;
+    margin: 0 10px;
+    padding: 12px 0;
+    color: #fff;
+    border: 0.5px solid #fff;
+    /* to make the position: relative just to make the parent div in relation with the div */
+    position: relative;
+    z-index: 1;
+    /* as we gave the color , which is the color during hover effect */
+    transition: color 0.5s;
+}
+
+/* we use span tag to make the box of hover effect from right to left */
+.banner-btn a span {
+    /* we make width 0 as to make the transition effect from left to right */
+    width: 0;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background:   #f4c793;;
+    /* to less the z-index from the parent div to make the the box appears on the top */
+    z-index: -1;
+    /* to make the transition just to make the div from left to right side */
+    transition: 0.5s;
+}
+
+.banner-btn a:hover span {
+    width: 100%;
+}
+
+.banner-btn a:hover {
+    color: #fff;
+}
+
+
+/* for responsiveness  of banner section*/
+
+@media screen and (max-width:770px) {
+
+    /* at less then 770px width the h1 becomes 44px  font*/
+    .banner-text h1 {
+        font-size: 44px;
+    }
+
+    /* at less then 770px width the a (which is  span) , becomes block and also margin apply of 20 (from up and down) and auto (from right and left) */
+    .banner-btn a {
+        display: block;
+        margin: 20px auto;
+    }
+    .logo{
+        top: 6%;
+    }
+
+}
+
+/* for responsiveness  of banner section ends*/
+
+/*-------- side navbar------ */
+
+
+/* side navbar which popsup after clicking on the menu bar */
+
+#sideNav {
+    width: 250px;
+    height: 100vh;
+    /* position fixed is due to not move during the hover of the page */
+    position: fixed;
+    /* top and right makes it on the top right of the page */
+    /* right: 0;*/
+    /* to hide the sidenav before click the menu */
+    right: -250px;
+    top: 0;
+    /* background: #009688; */
+    /* background-color: #383535; */
+    background-color:   #f4c793;;
+    z-index: 2;
+    /* the greater the z index , the higher the div is */
+    /* to make the transition effect on the side navbar */
+    transition: 0.5s;
+}
+
+/* for navbar links */
+nav ul li {
+    list-style: none;
+    margin: 50px 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    /* color: #443e3e; */
+color: #fff;
+}
+
+
+/* style for menu button */
+#menu_btn {
+    width: 50px;
+    height: 50px;
+    /* background: #009688; */
+    text-align: center;
+    position: fixed;
+    right: 30px;
+    top: 20px;
+    border-radius: 3px;
+    z-index: 3;
+    cursor: pointer;
+    border: 2px solid #f4c793;
+   border-radius: 10px;
+}
+
+#menu_btn img {
+    width: 40px;
+    margin-top: 7px;
+/* padding-bottom: 6px; */
+
+}
+
+/* ------------features----------- */
+
+#feature {
+    width: 100%;
+    padding: 70px 0;
+    /*up-down , left-right*/
+}
+
+.title-text {
+    text-align: center;
+    padding-bottom: 70px;
+}
+
+.title-text p {
+    margin: auto;
+    font-size: 20px;
+    /* color: #009688; */
+    color: #f4c793;
+    font-weight: bold;
+    /* we make the position relative  to make in relation with the p : after */
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+}
+
+/* to create a leaf on the top of features p tag */
+.title-text p::after {
+    content: '';
+    height: 35px;
+    width: 50px;
+    background: linear-gradient(#f4c793, #fff);
+    position: absolute;
+    top: -20px;
+    left: 0;
+    z-index: -1;
+    transform: rotate(10deg);
+    border-top-left-radius: 35px;
+    border-bottom-right-radius: 35px;
+
+}
+
+
+
+.title-text h1 {
+    font-size: 50px;
+}
+
+.feature-box {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    text-align: center;
+}
+
+.features {
+    flex-basis: 50%;
+}
+
+.features-img {
+    flex-basis: 50%;
+    margin: auto;
+}
+
+.features-img img {
+    width: 70%;
+    height: 85vh;
+    object-fit: cover;
+    /* background-size: cover; */
+       background-position: top center ;
+    border-radius: 10px;
+    border: 3px solid #f4c793;
+}
+
+.features h1 {
+    text-align: left;
+    /* real  
+    margin-bottom: 10px; */
+    margin-bottom: 8px;
+    /*edited*/
+    margin-top: 15px;
+    /*edited*/
+    font-weight: 100;
+    color: #f4c793;
+}
+
+.features-desc {
+    display: flex;
+    align-items: center;
+}
+
+.feature-icon .fa {
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+    line-height: 50px;
+    border-radius: 8px;
+    color: #f4c793;
+    border: 1px solid #f4c793;
+}
+
+.feature-text p {
+    padding: 0 20px;
+    text-align: initial;
+}
+
+/* responsiveness for features */
+@media screen and (max-width:770px) {
+    .title-text h1 {
+        font-size: 35px;
+    }
+
+    .features {
+        flex-basis: 100%;
+    }
+
+    .features-img {
+        flex-basis: 100%;
+    }
+
+    .features-img img {
+        margin: 20px 0px;
+        width: 100%;
+    }
+}
+
+/* ------service------- */
+#service {
+    width: 100%;
+    padding: 70px 0;
+    background: #efefef;
+}
+
+.service-box {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: auto;
+}
+
+.single-service {
+    flex-basis: 48%;
+    text-align: center;
+    border-radius: 7px;
+    margin-bottom: 20px;
+    color: #fff;
+    /* we do position: relative just to make in relation of the overlay */
+    position: relative;
+}
+
+.single-service img {
+    width: 100%;
+    border-radius: 7px;
+}
+
+#image-1{
+    height: 58vh;
+    /* background-color: #f4c793; */
+}
+#image-3{
+    height: 58vh;
+    /* background-color: #f4c793; */
+}
+
+.overlay {
+    width: 100%;
+    height: 98%;
+    position: absolute;
+    top: 0;
+    border-radius: 7px;
+    cursor: pointer;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), #f4c793);
+    opacity: 0;
+    transition: 1s;
+}
+
+/* for transition  */
+.single-service:hover .overlay {
+    opacity: 1;
+}
+
+.service-desc {
+    width: 80%;
+    position: absolute;
+    /*as relative is single service*/
+    bottom: 40%;
+    left: 50%;
+    opacity: 0;
+    /*this will remove the text before the transition*/
+    transform: translateX(-50%);
+    transition: 1s;
+    /*for transition effect of text */
+}
+
+/* for line */
+hr {
+    background: #fff;
+    height: 2px;
+    border: 0;
+    margin: 15px auto;
+    width: 60%;
+}
+
+.service-desc p {
+    font-size: 14px;
+}
+
+.single-service:hover .service-desc {
+    bottom: 40%;
+    opacity: 1;
+}
+
+/* responsivness for services section */
+@media screen and (max-width:770px) {
+    .single-service {
+        flex-basis: 100%;
+        margin-bottom: 30px;
+    }
+
+    .service-desc p {
+        font-size: 12px;
+    }
+    hr{
+        margin: 5px auto;
+    }
+    .single-service:hover .service-desc{
+        bottom: 25% !important;
+    }
+}
+/* ---------------testimonal------------------ */
+
+#testimonial{
+width: 100%;
+padding: 70px 0 ;
+}
+.title-text p{
+    color:#f4c793 ;
+}
+.testimonial-row{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+.testimonial-col{
+    flex-basis: 28%;
+    padding: 10px;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    box-shadow: 0 10px 20px 3px #00968814;
+    cursor: pointer;
+   transition: transform .5s;
+}
+.testimonial-col p{
+    font-size: 14px;
+}
+.user{
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+}
+.user img{
+    width: 40px;
+    margin-right: 20px;
+    border-radius: 10px;
+    border: 3px solid #f4c793;
+}
+.user-info .fa{
+    margin-left: 10px;
+    color: #27c0ff;
+    font-size: 20px;
+}
+.user-info small{
+    color: #f4c793;
+}
+.testimonial-col:hover{
+    transform: translateY(-7px);
+}
+/* responsiveness for testimonal section */
+@media screen and (max-width:770px) {
+    .testimonial-col{
+        flex-basis: 100%;
+    }
+}
+/*-------- footer-------- */
+
+#footer{
+   padding: 100px 0 20px;
+   background: #efefef;
+   position: relative;
+}
+.footer-row{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.footer-left , .footer-right{
+    flex-basis: 45%;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+.footer-right{
+    text-align: right;
+}
+.footer-row h1{
+    margin: 10px 0;
+}
+.footer-row p{
+    line-height: 35px;
+}
+.footer-left .fa, .footer-right .fa{
+    font-size: 20px;
+    color: #f4c793;
+    margin: 10px;
+}
+.footer-img{
+    max-width: 370px;
+    opacity: 0.1;
+    position: absolute;
+    left: 50%;
+    top: 35%;
+    transform: translate(-50% , -50%);
+}
+.social-links{
+    text-align: center;
+}
+.social-links .fa{
+    height: 40px;
+    width: 40px;
+    font-size: 20px;
+    line-height: 40px;
+    border: 1px solid #f4c793;
+    margin: 40px 5px 0;
+    color: #f4c793;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.social-links .fa:hover{
+    background: #f4c793;
+    color: #fff;
+    transform: translateY(-7px);
+}
+.social-links p{
+    font-size: 12px;
+    margin-top: 20px;
+}
+
+/* responsiveness for contact us section  */
+@media screen and (max-width:770px){
+    .footer-left , .footer-right{
+        flex-basis: 100%;
+        font-size: 14px;
+    }
+    .footer-img{
+        top: 25%;
+    }
+}
